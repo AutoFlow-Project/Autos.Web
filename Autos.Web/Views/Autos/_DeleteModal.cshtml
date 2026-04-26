@@ -1,0 +1,32 @@
+﻿<div class="modal" id="deleteModal">
+    <div class="modal-background"></div>
+
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Eliminar Auto</p>
+            <button class="delete" aria-label="close" id="btnCloseDeleteModal"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <input type="hidden" id="deleteId" />
+
+            <div class="notification is-warning is-light">
+                <p class="mb-2">
+                    ¿Seguro que deseas eliminar este auto?
+                </p>
+                <p>
+                    <strong id="deleteAutoInfo">Auto</strong>
+                </p>
+            </div>
+
+            <div class="notification is-danger is-light" id="deleteErrorGeneral" style="display:none;">
+                <p id="deleteErrorGeneralMsg"></p>
+            </div>
+        </section>
+
+        <footer class="modal-card-foot">
+            <button class="button is-danger" id="btnConfirmDelete">Sí, eliminar</button>
+            <button class="button" id="btnCancelDelete">Cancelar</button>
+        </footer>
+    </div>
+</div>

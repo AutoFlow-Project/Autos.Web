@@ -1,0 +1,122 @@
+﻿@model Autos.Web.Models.AutoViewModel
+
+<div class="modal" id="createModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+
+        <header class="modal-card-head">
+            <p class="modal-card-title">Nuevo Auto</p>
+            <button class="delete" aria-label="close" id="btnCloseCreateModal"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <form id="formCreate">
+
+                <!-- Marca -->
+                <div class="field">
+                    <label class="label">Marca</label>
+                    <div class="control">
+                        <input class="input" type="text" id="createMarca"
+                               placeholder="Ej: Toyota" maxlength="50" />
+                    </div>
+                    <p class="help is-danger" id="errorCreateMarca"></p>
+                </div>
+
+                <!-- Modelo -->
+                <div class="field">
+                    <label class="label">Modelo</label>
+                    <div class="control">
+                        <input class="input" type="text" id="createModelo"
+                               placeholder="Ej: Yaris" maxlength="50" />
+                    </div>
+                    <p class="help is-danger" id="errorCreateModelo"></p>
+                </div>
+
+                <!-- Año -->
+                <div class="field">
+                    <label class="label">Año</label>
+                    <div class="control">
+                        <input class="input" type="number" id="createAnio"
+                               placeholder="Ej: 2024"
+                               min="1885" />
+                        <!-- El atributo max se asignará dinámicamente con JS -->
+                    </div>
+                    <p class="help is-danger" id="errorCreateAnio"></p>
+                </div>
+
+                <!-- Tipo de Auto -->
+                <div class="field">
+                    <label class="label">Tipo de Auto</label>
+                    <div class="control">
+                        <input class="input" type="text" id="createTipoDeAuto"
+                               placeholder="Ej: Sedán" maxlength="50" />
+                    </div>
+                    <p class="help is-danger" id="errorCreateTipoDeAuto"></p>
+                </div>
+
+                <!-- Cantidad de Asientos -->
+                <div class="field">
+                    <label class="label">Cantidad de Asientos</label>
+                    <div class="control">
+                        <input class="input" type="number" id="createCantidadDeAsientos"
+                               placeholder="Ej: 5" min="1" max="8" />
+                    </div>
+                    <p class="help is-danger" id="errorCreateCantidadDeAsientos"></p>
+                </div>
+
+                <!-- Color -->
+                <div class="field">
+                    <label class="label">Color</label>
+                    <div class="control">
+                        <input class="input" type="text" id="createColor"
+                               placeholder="Ej: Rojo" maxlength="30" />
+                    </div>
+                    <p class="help is-danger" id="errorCreateColor"></p>
+                </div>
+
+                <!-- Tipo de Combustible -->
+                <div class="field">
+                    <label class="label">Tipo de Combustible</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select id="createTipoCombustible">
+                                <option value="">-- Selecciona --</option>
+                                <option value="Gasolina">Gasolina</option>
+                                <option value="Diésel">Diésel</option>
+                                <option value="GNV">GNV</option>
+                                <option value="GLP">GLP</option>
+                                <option value="Eléctrico">Eléctrico</option>
+                                <option value="Híbrido">Híbrido</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="help is-danger" id="errorCreateTipoCombustible"></p>
+                </div>
+
+                <!-- Aire Acondicionado -->
+                <div class="field">
+                    <label class="label">Aire Acondicionado</label>
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" id="createTieneAireAcondicionado" />
+                            ¿Tiene aire acondicionado?
+                        </label>
+                    </div>
+                    <p class="help">Si no marcas esta opción, se registrará como <strong>sin aire acondicionado</strong>.</p>
+                </div>
+
+                <!-- Mensaje de error general -->
+                <div class="notification is-danger is-light" id="createErrorGeneral" style="display:none;">
+                    <p id="createErrorGeneralMsg"></p>
+                </div>
+
+            </form>
+        </section>
+
+        <footer class="modal-card-foot">
+            <button class="button is-success" id="btnGuardarCreate">Guardar</button>
+            <button class="button" id="btnCancelCreate">Cancelar</button>
+        </footer>
+
+    </div>
+</div>

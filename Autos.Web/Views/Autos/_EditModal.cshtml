@@ -1,0 +1,105 @@
+﻿@model Autos.Web.Models.AutoViewModel
+
+<div class="modal" id="editModal">
+    <div class="modal-background" id="btnBgCloseEditModal"></div>
+
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Editar Auto</p>
+            <button class="delete" aria-label="close" id="btnCloseEditModal"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <form id="formEdit">
+                <input type="hidden" id="editId" />
+
+                <div class="field">
+                    <label class="label">Marca</label>
+                    <div class="control">
+                        <input class="input" type="text" id="editMarca" maxlength="50" />
+                    </div>
+                    <p class="help is-danger" id="errorEditMarca"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Modelo</label>
+                    <div class="control">
+                        <input class="input" type="text" id="editModelo" maxlength="50" />
+                    </div>
+                    <p class="help is-danger" id="errorEditModelo"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Año</label>
+                    <div class="control">
+                        <input class="input" type="number" id="editAnio" min="1885" />
+                    </div>
+                    <p class="help is-danger" id="errorEditAnio"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Tipo de Auto</label>
+                    <div class="control">
+                        <input class="input" type="text" id="editTipoDeAuto" maxlength="50" />
+                    </div>
+                    <p class="help is-danger" id="errorEditTipoDeAuto"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Cantidad de Asientos</label>
+                    <div class="control">
+                        <input class="input" type="number" id="editCantidadDeAsientos" min="1" max="8" />
+                    </div>
+                    <p class="help is-danger" id="errorEditCantidadDeAsientos"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Color</label>
+                    <div class="control">
+                        <input class="input" type="text" id="editColor" maxlength="30" />
+                    </div>
+                    <p class="help is-danger" id="errorEditColor"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Tipo de Combustible</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select id="editTipoCombustible">
+                                <option value="">-- Selecciona --</option>
+                                <option value="Gasolina">Gasolina</option>
+                                <option value="Diésel">Diésel</option>
+                                <option value="GNV">GNV</option>
+                                <option value="GLP">GLP</option>
+                                <option value="Eléctrico">Eléctrico</option>
+                                <option value="Híbrido">Híbrido</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="help is-danger" id="errorEditTipoCombustible"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Aire Acondicionado</label>
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" id="editTieneAireAcondicionado" />
+                            ¿Tiene aire acondicionado?
+                        </label>
+                    </div>
+                    <p class="help">Si no marcas esta opción, se registrará como <strong>sin aire acondicionado</strong>.</p>
+                </div>
+
+                <div class="notification is-danger is-light" id="editErrorGeneral" style="display:none;">
+                    <p id="editErrorGeneralMsg"></p>
+                </div>
+
+            </form>
+        </section>
+
+        <footer class="modal-card-foot">
+            <button class="button is-success" id="btnGuardarEdit">Guardar cambios</button>
+            <button class="button" id="btnCancelEdit">Cancelar</button>
+        </footer>
+    </div>
+</div>

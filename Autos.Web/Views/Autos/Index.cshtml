@@ -1,0 +1,86 @@
+﻿@model List<Autos.Web.Models.AutoViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Autos";
+}
+
+@* Partial View de Modales *@
+@await Html.PartialAsync("_CreateModal", new Autos.Web.Models.AutoViewModel())
+@await Html.PartialAsync("_EditModal", new Autos.Web.Models.AutoViewModel())
+@await Html.PartialAsync("_DeleteModal")
+
+<section class="section">
+    <div class="container">
+
+        <h1 class="title">Autos</h1>
+        <h2 class="subtitle">Gestión de vehículos registrados</h2>
+
+        <button class="button is-primary mb-4" id="btnNuevoAuto">
+            Nuevo Auto
+        </button>
+
+        <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth" id="tablaAutos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Año</th>
+                        <th>Tipo</th>
+                        <th>Asientos</th>
+                        <th>Color</th>
+                        <th>A/C</th>
+                        <th>Combustible</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var auto in Model)
+                    {
+                        <tr>
+                            <td>@auto.Id</td>
+                            <td>@auto.Marca</td>
+                            <td>@auto.Modelo</td>
+                            <td>@auto.Anio</td>
+                            <td>@auto.TipoDeAuto</td>
+                            <td>@auto.CantidadDeAsientos</td>
+                            <td>@auto.Color</td>
+                            <td>
+                                @if (auto.TieneAireAcondicionado)
+                                {
+                                    <span class="tag is-success">Sí</span>
+                                }
+                                else
+                                {
+                                    <span class="tag is-light">No</span>
+                                }
+                            </td>
+                            <td>@auto.TipoCombustible</td>
+                            <td>
+                                <button class="button is-small is-info btnEditar" data-id="@auto.Id">
+                                    Editar
+                                </button>
+                                <button class="button is-small is-danger btnEliminar" data-id="@auto.Id">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@section Scripts {
+    <script>
+        window.autosApiBase =
+            '@Configuration["ApiSettings:BaseUrl"]'.replace(/\/$/, '') + '/api/autos';
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/autos.js"></script>
+}
