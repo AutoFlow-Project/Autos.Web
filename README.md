@@ -33,6 +33,10 @@ Abrir el archivo: appsettings.json
 
 Configurar la URL base de la API:
 
+
+Configurar la URL base de la API:
+
+```json
 "ApiSettings": {
   "BaseUrl": "http://localhost:5001/"
 }
